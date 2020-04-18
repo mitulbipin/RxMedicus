@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.rxmedicus1">
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ProfileDoctor2"></activity>
+        <activity android:name=".ProfileDoctor" />
+        <activity android:name=".DoctorCommunityActivity" />
+        <activity android:name=".PatientListActivity" />
+        <activity android:name=".FirstActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".DoctorListActivity" />
+        <activity android:name=".HospitalActivity" />
+        <activity android:name=".DoctorUploadActivity" />
+        <activity android:name=".DoctorProfile" />
+        <activity android:name=".DoctorMainActivity" />
+        <activity android:name=".MedicationActivity" />
+        <activity android:name=".UserProfile" />
+        <activity android:name=".SupportingActivity" />
+        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".SecondActivity" />
+        <activity android:name=".MainActivity" />
+    </application>
+
+</manifest>

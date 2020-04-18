@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "321975670412",
+    "firebase_url": "https://rxmedicus-eff56.firebaseio.com",
+    "project_id": "rxmedicus-eff56",
+    "storage_bucket": "rxmedicus-eff56.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:321975670412:android:b6d4b1f136ee60b6",
+        "android_client_info": {
+          "package_name": "com.example.rxmedicus1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "321975670412-ot2b5ef2llkt7cbdlianp42va7h7j55m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rxmedicus1",
+            "certificate_hash": "95c6ce9841f4b432c759e1e31bb14a9f9bb842ad"
+          }
+        },
+        {
+          "client_id": "321975670412-6qihehdhn5o6jncgnvki97efqkh7dr4f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rxmedicus1",
+            "certificate_hash": "7079effb656c9858dc18bda5190c90b60ab617dc"
+          }
+        },
+        {
+          "client_id": "321975670412-oh64b55rcqmh56e2j8r138q0cqj3q3v0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5Zlmpe2B-8Jm2jE39AhkYDd1R5QDlcas"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "321975670412-oh64b55rcqmh56e2j8r138q0cqj3q3v0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/BtmNavDoctorUpload"
+        android:title="Upload"
+        android:icon="@drawable/ic_add_black_24dp" />
+    <item
+        android:id="@+id/BtmNavPatient"
+        android:title="Patients"
+        android:icon="@drawable/patients"/>
+    <item
+        android:id="@+id/BtmNavDocCommunity"
+        android:title="Community"
+        android:icon="@drawable/doctorscommunity"/>
+    <item
+        android:id="@+id/BtmNavMedicine"
+        android:title="Medicines"
+        android:icon="@drawable/ic_medicine_black_24dp"/>
+
+</menu>
