@@ -23,13 +23,14 @@ import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 public class ProfileDoctor extends AppCompatActivity {
-private TextView Name,Number,ClinicAddr,Experience;
-private ImageView Verify,Pic;
-private Button Call;
+    private TextView Name, Number, ClinicAddr, Experience;
+    private ImageView Verify, Pic;
+    private Button Call;
     public FirebaseDatabase firebaseDatabase;
     public DatabaseReference databaseReference;
     private FirebaseStorage firebaseStorage;
     private StorageReference storageReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,9 +44,9 @@ private Button Call;
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Name.setText(dataSnapshot.child("doctorsname").getValue().toString());
-                Number.setText("Number: "+dataSnapshot.child("doctorsnumber").getValue().toString());
-                ClinicAddr.setText("Clinic Address: "+dataSnapshot.child("cliniaddress").getValue().toString());
-                Experience.setText("Experience: "+dataSnapshot.child("doctorsexperience").getValue().toString() +" Years");
+                Number.setText("Number: " + dataSnapshot.child("doctorsnumber").getValue().toString());
+                ClinicAddr.setText("Clinic Address: " + dataSnapshot.child("cliniaddress").getValue().toString());
+                Experience.setText("Experience: " + dataSnapshot.child("doctorsexperience").getValue().toString() + " Years");
             }
 
             @Override
@@ -72,7 +73,7 @@ private Button Call;
         });
     }
 
-    private void variables(){
+    private void variables() {
         Name = findViewById(R.id.NameDisp);
         Number = findViewById(R.id.NumDisp);
         Experience = findViewById(R.id.ExperienceDisp);
