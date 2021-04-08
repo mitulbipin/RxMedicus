@@ -30,16 +30,17 @@ public class DoctorProfile extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase;
     private FirebaseStorage firebaseStorage;
     private StorageReference storageReference;
-    private Button DoctorUpload,FstoreTest;
+    private Button DoctorUpload, FstoreTest;
     private TextView DoctorNameDisp;
     private TextView Name, Number, Experience, Specialisation, ClinicAddress, ResidencialAddress;
     private ImageView DocProfPic;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.doctorsmenu,menu);
+        getMenuInflater().inflate(R.menu.doctorsmenu, menu);
         return super.onCreateOptionsMenu(menu);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -60,38 +61,40 @@ public class DoctorProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_profile);
         firebaseAuth = FirebaseAuth.getInstance();
-        firebaseDatabase =FirebaseDatabase.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseStorage = FirebaseStorage.getInstance();
         storageReference = firebaseStorage.getReference();
-        variables(); BottomNavigation();
+        variables();
+        BottomNavigation();
         DoctorNameDisp = findViewById(R.id.DoctorNameDisplay);
-        DoctorNameDisp.setText("Hi " +firebaseAuth.getCurrentUser().getEmail().replace("@gmail.com","").toUpperCase());
+        DoctorNameDisp.setText("Hi " + firebaseAuth.getCurrentUser().getEmail().replace("@gmail.com", "").toUpperCase());
         DoctorUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(DoctorProfile.this,DoctorUploadActivity.class));
+                startActivity(new Intent(DoctorProfile.this, DoctorUploadActivity.class));
             }
         });
         firebaseAuth = FirebaseAuth.getInstance();
-        firebaseDatabase =FirebaseDatabase.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(dataSnapshot.exists()) // RIP
+                if (dataSnapshot.exists()) // RIP
                 {
-                DoctorsProfile doctorsProfile = dataSnapshot.getValue(DoctorsProfile.class);
-                Name.setText("Name:"+doctorsProfile.getDoctorsname());
-                Number.setText("Contact Number:"+doctorsProfile.getDoctorsnumber());
-                Experience.setText("Experience:"+doctorsProfile.getDoctorsexperience()+" years");
-                Specialisation.setText("Specialisation:"+doctorsProfile.getDoctorsspecialisation());
-                ClinicAddress.setText("Clinic Address:"+doctorsProfile.getCliniaddress());
-                ResidencialAddress.setText("Residence Address:"+ doctorsProfile.getResidenciaddress());
+                    DoctorsProfile doctorsProfile = dataSnapshot.getValue(DoctorsProfile.class);
+                    Name.setText("Name:" + doctorsProfile.getDoctorsname());
+                    Number.setText("Contact Number:" + doctorsProfile.getDoctorsnumber());
+                    Experience.setText("Experience:" + doctorsProfile.getDoctorsexperience() + " years");
+                    Specialisation.setText("Specialisation:" + doctorsProfile.getDoctorsspecialisation());
+                    ClinicAddress.setText("Clinic Address:" + doctorsProfile.getCliniaddress());
+                    ResidencialAddress.setText("Residence Address:" + doctorsProfile.getResidenciaddress());
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(DoctorProfile.this,"Error in fetching the database ",Toast.LENGTH_SHORT).show();
+                Toast.makeText(DoctorProfile.this, "Error in fetching the database ", Toast.LENGTH_SHORT).show();
             }
         });
         storageReference.child(firebaseAuth.getUid()).child("DoctorImage").getDownloadUrl()
@@ -103,27 +106,33 @@ public class DoctorProfile extends AppCompatActivity {
                 });
     }
 
-    private void BottomNavigation()
-    {
+    private void BottomNavigation() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomnavdoctor);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                switch (menuItem.getItemId()){
-                    case R.id.BtmNavDoctorUpload:{
-                        startActivity(new Intent(DoctorProfile.this,DoctorUploadActivity.class));break;}
-                    case R.id.BtmNavPatient:{
-                        startActivity(new Intent(DoctorProfile.this,PatientListActivity.class));break;}
-                    case R.id.BtmNavDocCommunity:{
-                        startActivity(new Intent(DoctorProfile.this,DoctorCommunityActivity.class));break;}
-                    case R.id.BtmNavMedicine: break;
+                switch (menuItem.getItemId()) {
+                    case R.id.BtmNavDoctorUpload: {
+                        startActivity(new Intent(DoctorProfile.this, DoctorUploadActivity.class));
+                        break;
+                    }
+                    case R.id.BtmNavPatient: {
+                        startActivity(new Intent(DoctorProfile.this, PatientListActivity.class));
+                        break;
+                    }
+                    case R.id.BtmNavDocCommunity: {
+                        startActivity(new Intent(DoctorProfile.this, DoctorCommunityActivity.class));
+                        break;
+                    }
+                    case R.id.BtmNavMedicine:
+                        break;
                 }
                 return false;
             }
         });
     }
-    private void variables()
-    {
+
+    private void variables() {
         DoctorUpload = findViewById(R.id.DoctorUpload);
         Name = findViewById(R.id.NameDispDoc);
         Number = findViewById(R.id.NumDispDoc);
